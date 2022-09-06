@@ -30,7 +30,7 @@ server = app.server
 # network_df = pd.read_csv('outputs/network_df.csv', index_col=0)  # ~8300 nodes
 #network_df = pd.read_csv("outputs/network_df_sm.csv", index_col=0)  # ~4700 nodes
 #network_df = pd.read_csv("outputs/df_final0 - df_final.csv")  # ~4700 nodes
-network_df = pd.read_csv("outputs/network_df.csv")  # ~4700 nodes
+network_df = pd.read_csv("network_df.csv")  # ~4700 nodes
 
 # Prep data / fill NAs
 #network_df["citations"] = network_df["citations"].fillna("")
@@ -43,7 +43,7 @@ network_df['title'].replace('', np.nan, inplace=True)
 network_df.dropna(subset=['title'], inplace=True)
 topic_ids = [str(i) for i in range(len(network_df["topic_id"].unique()))]
 # lda_val_arr = network_df[topic_ids].values
-with open("outputs/metadatas.json", "r") as f:
+with open("metadatas.json", "r") as f:
     metadatas = json.load(f)
 topics_txt = [i['title'].replace("title", "").strip() for i in metadatas]
 
